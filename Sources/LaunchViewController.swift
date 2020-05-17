@@ -34,9 +34,17 @@ public class LaunchViewController : UIViewController {
         
     }
     @objc func getStartedClicked(){
-        newViewController.preferredContentSize = CGSize(width:600, height:400)
-        PlaygroundPage.current.liveView = newViewController
-
+        getStarted.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: -500).isActive = true
+        getStarted.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -650).isActive = true
+        UIView.animate(withDuration: 0.5) {
+            self.view.layoutIfNeeded()
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            self.newViewController.preferredContentSize = CGSize(width:600, height:400)
+            PlaygroundPage.current.liveView = self.newViewController
+                   
+        }
+       
     }
     
     func setButtonConstraints(){
