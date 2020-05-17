@@ -9,6 +9,8 @@ public class Pass1ViewController: UIViewController{
     let nextButton = UIButton()
     let headingLabel = UILabel()
     let descLabel = UILabel()
+    let lockImage = UIImageView()
+    let keyImage = UIImageView()
     
     public override func loadView() {
         let view = UIView()
@@ -17,8 +19,22 @@ public class Pass1ViewController: UIViewController{
         setUpNextButton()
         setUpTitle()
         setDescLabel()
+        setLockImage()
+    }
+    func setLockImage(){
+        view.addSubview(lockImage)
+        lockImage.image = UIImage(named: "lock")
+        setLockImageConstraints()
     }
     
+    func setLockImageConstraints(){
+        lockImage.translatesAutoresizingMaskIntoConstraints = false
+        lockImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80).isActive = true
+        lockImage.heightAnchor.constraint(equalTo: lockImage.widthAnchor, multiplier: 1.0/1.0).isActive = true
+        lockImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 125).isActive = true
+        lockImage.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        
+    }
     func setUpNextButton(){
         
         view.addSubview(nextButton)
