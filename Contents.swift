@@ -13,7 +13,7 @@ public class IntroViewController1 : UIViewController{
     
     let nextButton = UIButton()
     let headingLabel = UILabel()
-    let
+//    let
     
     public override func loadView() {
         let view = UIView()
@@ -42,7 +42,7 @@ public class IntroViewController1 : UIViewController{
         
     }
     func setUpTitle(){
-        view.addSubview(heading)
+        view.addSubview(headingLabel)
         headingLabel.text = "What is CyberSense?"
         headingLabel.textColor = .white
         headingLabel.textAlignment = .center
