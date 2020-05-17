@@ -2,7 +2,7 @@ import UIKit
 import PlaygroundSupport
 
 public class IntroViewController : UIViewController{
-    //    let newViewController = IntroViewController()
+//    let newViewController = Pass1ViewController()
     
     let nextButton = UIButton()
     let headingLabel = UILabel()
@@ -13,6 +13,8 @@ public class IntroViewController : UIViewController{
         view.backgroundColor = .black
         self.view = view
         setUpNextButton()
+        setUpTitle()
+        setDescLabel()
     }
     
     func setUpNextButton(){
@@ -25,14 +27,14 @@ public class IntroViewController : UIViewController{
         nextButton.layer.borderWidth = 1
         nextButton.layer.borderColor = UIColor.white.cgColor
         setButtonConstraints()
-        setUpTitle()
-        //        nextButton.addTarget(self,action: #selector(getStartedClicked),for: .touchUpInside)
-        //
-        //    }
-        //    @objc func getStartedClicked(){
-        //        newViewController.preferredContentSize = CGSize(width:600, height:400)
-        //        PlaygroundPage.current.liveView = newViewController
         
+//        nextButton.addTarget(self,action: #selector(getStartedClicked),for: .touchUpInside)
+//        
+//    }
+//    @objc func getStartedClicked(){
+//        newViewController.preferredContentSize = CGSize(width:600, height:400)
+//        PlaygroundPage.current.liveView = newViewController
+//        
     }
     func setUpTitle(){
         view.addSubview(headingLabel)
@@ -41,7 +43,7 @@ public class IntroViewController : UIViewController{
         headingLabel.textAlignment = .center
         headingLabel.font = UIFont(name: headingLabel.font.fontName, size: 30)
         setTitleConstrains()
-        setDescLabel()
+        
     }
     func setDescLabel(){
         view.addSubview(descLabel)
