@@ -135,11 +135,16 @@ extension Pass1ViewController{
     func animateKeyImage(){
         for i in 0...6{
             UIView.animate(withDuration: 0.7, delay: TimeInterval(i), options: .curveLinear, animations: {
-            self.keyImage.center.x += 50
-        }, completion: nil)
+                self.keyImage.center.x += 50
+            }, completion: nil)
+            
+            UIView.animate(withDuration: 0.5, delay:TimeInterval(i), options: .curveLinear, animations: {
+                self.keyImage.center.x -= 50
+            }, completion: nil)
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 6.68) {
+            self.lockImage.image = UIImage(named: "open_lock.png")
+        }
         
-        UIView.animate(withDuration: 0.5, delay:TimeInterval(i), options: .curveLinear, animations: {
-            self.keyImage.center.x -= 50
-        }, completion: nil)
-        }}
+    }
 }
