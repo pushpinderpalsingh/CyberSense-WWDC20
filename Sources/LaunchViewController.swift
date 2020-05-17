@@ -34,6 +34,7 @@ public class LaunchViewController : UIViewController {
         
     }
     @objc func getStartedClicked(){
+        newViewController.preferredContentSize = CGSize(width:600, height:400)
         PlaygroundPage.current.liveView = newViewController
 
     }
