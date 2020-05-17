@@ -22,11 +22,18 @@ public class Pass1ViewController: UIViewController{
         setUpTitle()
         setDescLabel()
         setLockImage()
+        setKeyImage()
     }
 
 }
 //MARK: - Setting UP UI
 extension Pass1ViewController {
+    
+    func setKeyImage(){
+        view.addSubview(keyImage)
+        keyImage.image = UIImage(named: "key.png")
+        setKeyImageConstraints()
+    }
     
     func setLockImage(){
            view.addSubview(lockImage)
@@ -71,6 +78,7 @@ extension Pass1ViewController {
         descLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         descLabel.font = UIFont(name: descLabel.font.fontName, size: 18)
         setDescConstraints()
+        animateKey()
     }
 }
 
@@ -78,12 +86,20 @@ extension Pass1ViewController {
 //MARK: - Setting UP UI Constraints
 
 extension Pass1ViewController{
+    
+    func setKeyImageConstraints(){
+        keyImage.translatesAutoresizingMaskIntoConstraints = false
+        keyImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 125).isActive = true
+        keyImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -200).isActive = true
+        keyImage.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        keyImage.heightAnchor.constraint(equalTo: keyImage.widthAnchor, multiplier: 1.0/1.0).isActive = true
+    }
      
      func setLockImageConstraints(){
          lockImage.translatesAutoresizingMaskIntoConstraints = false
          lockImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80).isActive = true
          lockImage.heightAnchor.constraint(equalTo: lockImage.widthAnchor, multiplier: 1.0/1.0).isActive = true
-         lockImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 125).isActive = true
+         lockImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 110).isActive = true
          lockImage.widthAnchor.constraint(equalToConstant: 80).isActive = true
          
      }
@@ -115,6 +131,7 @@ extension Pass1ViewController{
 //MARK: - Setting up Animations
 
 extension Pass1ViewController{
-    
-    
+    func animateKey(){
+        for 
+    }
 }
