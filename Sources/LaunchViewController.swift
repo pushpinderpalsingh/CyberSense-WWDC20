@@ -1,11 +1,11 @@
 import UIKit
 import PlaygroundSupport
 
+
 public class LaunchViewController : UIViewController {
-    
+    let newViewController = IntroViewController()
     let logo = UIImageView()
     let getStarted = UIButton()
-    
     public override func loadView() {
         let view = UIView()
         view.backgroundColor = .black
@@ -30,6 +30,12 @@ public class LaunchViewController : UIViewController {
         getStarted.layer.borderWidth = 1
         getStarted.layer.borderColor = UIColor.white.cgColor
         setButtonConstraints()
+        getStarted.addTarget(self,action: #selector(getStartedClicked),for: .touchUpInside)
+        
+    }
+    @objc func getStartedClicked(){
+        PlaygroundPage.current.liveView = newViewController
+
     }
     
     func setButtonConstraints(){
