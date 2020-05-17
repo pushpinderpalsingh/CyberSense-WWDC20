@@ -24,7 +24,7 @@ public class Pass1ViewController: UIViewController{
         setLockImage()
         setKeyImage()
     }
-
+    
 }
 //MARK: - Setting UP UI
 extension Pass1ViewController {
@@ -33,13 +33,14 @@ extension Pass1ViewController {
         view.addSubview(keyImage)
         keyImage.image = UIImage(named: "key.png")
         setKeyImageConstraints()
+        animateKeyImage()
     }
     
     func setLockImage(){
-           view.addSubview(lockImage)
-           lockImage.image = UIImage(named: "lock.png")
-           setLockImageConstraints()
-       }
+        view.addSubview(lockImage)
+        lockImage.image = UIImage(named: "lock.png")
+        setLockImageConstraints()
+    }
     
     func setUpNextButton(){
         
@@ -78,7 +79,6 @@ extension Pass1ViewController {
         descLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         descLabel.font = UIFont(name: descLabel.font.fontName, size: 18)
         setDescConstraints()
-        animateKey()
     }
 }
 
@@ -90,48 +90,56 @@ extension Pass1ViewController{
     func setKeyImageConstraints(){
         keyImage.translatesAutoresizingMaskIntoConstraints = false
         keyImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 125).isActive = true
-        keyImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -200).isActive = true
+        keyImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -160).isActive = true
         keyImage.widthAnchor.constraint(equalToConstant: 80).isActive = true
         keyImage.heightAnchor.constraint(equalTo: keyImage.widthAnchor, multiplier: 1.0/1.0).isActive = true
     }
-     
-     func setLockImageConstraints(){
-         lockImage.translatesAutoresizingMaskIntoConstraints = false
-         lockImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80).isActive = true
-         lockImage.heightAnchor.constraint(equalTo: lockImage.widthAnchor, multiplier: 1.0/1.0).isActive = true
-         lockImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 110).isActive = true
-         lockImage.widthAnchor.constraint(equalToConstant: 80).isActive = true
-         
-     }
-     
-     func setButtonConstraints(){
-         nextButton.translatesAutoresizingMaskIntoConstraints = false
-         nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
-         nextButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
-         nextButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
-         nextButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
-     }
-     
-     func setDescConstraints(){
-         descLabel.translatesAutoresizingMaskIntoConstraints = false
-         descLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
-         descLabel.widthAnchor.constraint(equalToConstant: 300).isActive = true
-         descLabel.heightAnchor.constraint(equalToConstant: 500).isActive = true
-         descLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
-     }
     
-     func setTitleConstrains(){
-         headingLabel.translatesAutoresizingMaskIntoConstraints = false
-         headingLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
-         headingLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
-         headingLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true
-         headingLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
-     }
+    func setLockImageConstraints(){
+        lockImage.translatesAutoresizingMaskIntoConstraints = false
+        lockImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80).isActive = true
+        lockImage.heightAnchor.constraint(equalTo: lockImage.widthAnchor, multiplier: 1.0/1.0).isActive = true
+        lockImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 110).isActive = true
+        lockImage.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        
+    }
+    
+    func setButtonConstraints(){
+        nextButton.translatesAutoresizingMaskIntoConstraints = false
+        nextButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20).isActive = true
+        nextButton.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        nextButton.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        nextButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -30).isActive = true
+    }
+    
+    func setDescConstraints(){
+        descLabel.translatesAutoresizingMaskIntoConstraints = false
+        descLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
+        descLabel.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        descLabel.heightAnchor.constraint(equalToConstant: 500).isActive = true
+        descLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 40).isActive = true
+    }
+    
+    func setTitleConstrains(){
+        headingLabel.translatesAutoresizingMaskIntoConstraints = false
+        headingLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10).isActive = true
+        headingLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -10).isActive = true
+        headingLabel.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        headingLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
+    }
 }
 //MARK: - Setting up Animations
 
 extension Pass1ViewController{
-    func animateKey(){
-        for 
-    }
+    
+    func animateKeyImage(){
+        for i in 0...6{
+            UIView.animate(withDuration: 0.7, delay: TimeInterval(i), options: .curveLinear, animations: {
+            self.keyImage.center.x += 50
+        }, completion: nil)
+        
+        UIView.animate(withDuration: 0.5, delay:TimeInterval(i), options: .curveLinear, animations: {
+            self.keyImage.center.x -= 50
+        }, completion: nil)
+        }}
 }
