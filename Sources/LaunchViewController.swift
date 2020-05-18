@@ -3,7 +3,9 @@ import PlaygroundSupport
 
 
 public class LaunchViewController : UIViewController {
+    
     let newViewController = IntroViewController()
+    
     let logo = UIImageView()
     let getStarted = UIButton()
     public override func loadView() {

@@ -1,8 +1,8 @@
 import UIKit
 import PlaygroundSupport
-
+    let newViewController = Pass1ViewController()
 public class IntroViewController : UIViewController{
-//    let newViewController = Pass1ViewController()
+
     
     let nextButton = UIButton()
     let headingLabel = UILabel()
@@ -28,13 +28,13 @@ public class IntroViewController : UIViewController{
         nextButton.layer.borderColor = UIColor.white.cgColor
         setButtonConstraints()
         
-//        nextButton.addTarget(self,action: #selector(getStartedClicked),for: .touchUpInside)
-//        
-//    }
-//    @objc func getStartedClicked(){
-//        newViewController.preferredContentSize = CGSize(width:600, height:400)
-//        PlaygroundPage.current.liveView = newViewController
-//        
+        nextButton.addTarget(self,action: #selector(getStartedClicked),for: .touchUpInside)
+        
+    }
+    @objc func getStartedClicked(){
+        newViewController.preferredContentSize = CGSize(width:600, height:400)
+        PlaygroundPage.current.liveView = newViewController
+        
     }
     func setUpTitle(){
         view.addSubview(headingLabel)
