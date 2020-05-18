@@ -27,7 +27,11 @@ public class Pass1ViewController: UIViewController{
         setLockImage()
         setKeyImage()
     }
-    
+    public override func viewWillAppear(_ animated: Bool) {
+        self.lockImage.image = UIImage(named: "lock.png")
+        self.keyImage.center.x += 50
+        animateLockKeyImage()
+    }
 }
 //MARK: - Setting UP UI
 extension Pass1ViewController {

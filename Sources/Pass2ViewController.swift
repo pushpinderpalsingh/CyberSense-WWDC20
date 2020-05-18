@@ -24,9 +24,11 @@ public class Pass2ViewController: UIViewController{
         setKeyImage()
         setSpecialCharLabel()
     }
-    public override func viewDidLoad() {
-          animateImage()
-      }
+    public override func viewWillAppear(_ animated: Bool) {
+        specialCharLabel.center.y += 90
+        specialCharLabel.center.x += 50
+        animateImage()
+    }
     
 }
 //MARK: - Setting UP UI
