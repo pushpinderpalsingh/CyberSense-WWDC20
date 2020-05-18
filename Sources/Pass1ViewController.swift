@@ -6,8 +6,6 @@ private let previousView = IntroViewController()
 
 //MARK: - Class
 public class Pass1ViewController: UIViewController{
- 
-
     
     let nextButton = UIButton()
     let headingLabel = UILabel()
