@@ -83,7 +83,7 @@ extension Pass1ViewController {
         view.addSubview(descLabel)
         descLabel.textAlignment = .center
         descLabel.textColor = .white
-        descLabel.text = "To explain all this, I will use a key and lock analogy. If your key is very simple, anyone can break the lock of your digital world by very simple tools or even possibly brute force their way in!!"
+        descLabel.text = "To explain all this, I will use a key and lock analogy. If your key is very simple, anyone can break the lock of your digital world by very simple tools or even possibly brute force their way in!! Make your password a little complicated such that someone can't brute force their way in!"
         descLabel.numberOfLines = 8
         descLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         descLabel.font = UIFont(name: descLabel.font.fontName, size: 18)
@@ -132,8 +132,8 @@ extension Pass1ViewController{
         descLabel.translatesAutoresizingMaskIntoConstraints = false
         descLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
         descLabel.widthAnchor.constraint(equalToConstant: 300).isActive = true
-        descLabel.heightAnchor.constraint(equalToConstant: 500).isActive = true
-        descLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 20).isActive = true
+        descLabel.heightAnchor.constraint(equalToConstant: 450).isActive = true
+        descLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 10).isActive = true
     }
     
     func setTitleConstrains(){
