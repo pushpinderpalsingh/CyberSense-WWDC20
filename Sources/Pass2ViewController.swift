@@ -3,6 +3,7 @@ import PlaygroundSupport
 
 
 private let previousView = Pass1ViewController()
+private let newViewController = Pass3ViewController()
 
 public class Pass2ViewController: UIViewController{
     
@@ -70,8 +71,8 @@ extension Pass2ViewController {
         nextButton.layer.borderWidth = 1
         nextButton.layer.borderColor = UIColor.white.cgColor
         setButtonConstraints()
-        //        nextButton.addTarget(self,action: #selector(nextClicked),for: .touchUpInside)
-        //
+        nextButton.addTarget(self,action: #selector(nextClicked),for: .touchUpInside)
+        
     }
     
     func setUpTitle(){
@@ -151,11 +152,11 @@ extension Pass2ViewController{
 //MARK: - Actions
 
 extension Pass2ViewController{
-    // @objc func nextClicked(){
-    //                newViewController.preferredContentSize = CGSize(width:600, height:400)
-    //                PlaygroundPage.current.liveView = newViewController
-    //
-    //    }
+    @objc func nextClicked(){
+        newViewController.preferredContentSize = CGSize(width:600, height:400)
+        PlaygroundPage.current.liveView = newViewController
+        
+    }
     @objc func previousClicked(){
         previousView.preferredContentSize = CGSize(width:600, height:400)
         PlaygroundPage.current.liveView = previousView
