@@ -1,8 +1,10 @@
 import UIKit
 import PlaygroundSupport
-    let newViewController = Pass1ViewController()
-public class IntroViewController : UIViewController{
 
+
+private let newViewController = Pass1ViewController()
+
+public class IntroViewController : UIViewController{
     
     let nextButton = UIButton()
     let headingLabel = UILabel()

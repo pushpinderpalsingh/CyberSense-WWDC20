@@ -1,20 +1,17 @@
 import UIKit
 import PlaygroundSupport
 
-private let newViewController = Pass2ViewController()
-private let previousView = IntroViewController()
 
-//MARK: - Class
-public class Pass1ViewController: UIViewController{
- 
+private let previousView = Pass1ViewController()
 
+public class Pass2ViewController: UIViewController{
     
     let nextButton = UIButton()
     let headingLabel = UILabel()
     let descLabel = UILabel()
-    let lockImage = UIImageView()
     let keyImage = UIImageView()
     let previousButton = UIButton()
+    let specialCharLabel = UILabel()
     
     public override func loadView() {
         let view = UIView()
@@ -24,25 +21,29 @@ public class Pass1ViewController: UIViewController{
         setUPPreviousButton()
         setUpTitle()
         setDescLabel()
-        setLockImage()
         setKeyImage()
+        setSpecialCharLabel()
     }
+    public override func viewDidLoad() {
+          animateImage()
+      }
     
 }
 //MARK: - Setting UP UI
-extension Pass1ViewController {
+extension Pass2ViewController {
+    
+    func setSpecialCharLabel(){
+        view.addSubview(specialCharLabel)
+        specialCharLabel.text = "#+!?/-@$"
+        specialCharLabel.textAlignment = .center
+        specialCharLabel.textColor = .white
+        setSpecialCharConstraints()
+    }
     
     func setKeyImage(){
         view.addSubview(keyImage)
         keyImage.image = UIImage(named: "key.png")
         setKeyImageConstraints()
-        animateLockKeyImage()
-    }
-    
-    func setLockImage(){
-        view.addSubview(lockImage)
-        lockImage.image = UIImage(named: "lock.png")
-        setLockImageConstraints()
     }
     
     func setUPPreviousButton(){
@@ -67,12 +68,13 @@ extension Pass1ViewController {
         nextButton.layer.borderWidth = 1
         nextButton.layer.borderColor = UIColor.white.cgColor
         setButtonConstraints()
-                nextButton.addTarget(self,action: #selector(nextClicked),for: .touchUpInside)
-            }
+        //        nextButton.addTarget(self,action: #selector(nextClicked),for: .touchUpInside)
+        //
+    }
     
     func setUpTitle(){
         view.addSubview(headingLabel)
-        headingLabel.text = "Why Should you create strong passwords?"
+        headingLabel.text = "How can you create stronger passwords?"
         headingLabel.textColor = .white
         headingLabel.textAlignment = .center
         headingLabel.font = UIFont(name: headingLabel.font.fontName, size: 30)
@@ -83,7 +85,7 @@ extension Pass1ViewController {
         view.addSubview(descLabel)
         descLabel.textAlignment = .center
         descLabel.textColor = .white
-        descLabel.text = "To explain all this, I will use a key and lock analogy. If your key is very simple, anyone can break the lock of your digital world by very simple tools or even possibly brute force their way in!! Make your password a little complicated such that someone can't brute force their way in!"
+        descLabel.text = "To make your password more secure, simply add special characters such as numbers and special characters. Also making your password as long as possible makes your password exponentially stronger. Hacker Edward Snowden says changing our mentality from Password to Passphrase! "
         descLabel.numberOfLines = 8
         descLabel.lineBreakMode = NSLineBreakMode.byWordWrapping
         descLabel.font = UIFont(name: descLabel.font.fontName, size: 18)
@@ -94,24 +96,24 @@ extension Pass1ViewController {
 
 //MARK: - Setting UP UI Constraints
 
-extension Pass1ViewController{
+extension Pass2ViewController{
+    
+    func setSpecialCharConstraints(){
+        specialCharLabel.translatesAutoresizingMaskIntoConstraints = false
+        specialCharLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80).isActive = true
+        specialCharLabel.heightAnchor.constraint(equalToConstant: 80).isActive = true
+        specialCharLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 125).isActive = true
+        specialCharLabel.widthAnchor.constraint(equalTo: keyImage.heightAnchor, multiplier: 1.0/1.0).isActive = true
+    }
     
     func setKeyImageConstraints(){
         keyImage.translatesAutoresizingMaskIntoConstraints = false
         keyImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 125).isActive = true
-        keyImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -160).isActive = true
+        keyImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80).isActive = true
         keyImage.widthAnchor.constraint(equalToConstant: 80).isActive = true
         keyImage.heightAnchor.constraint(equalTo: keyImage.widthAnchor, multiplier: 1.0/1.0).isActive = true
     }
     
-    func setLockImageConstraints(){
-        lockImage.translatesAutoresizingMaskIntoConstraints = false
-        lockImage.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -80).isActive = true
-        lockImage.heightAnchor.constraint(equalTo: lockImage.widthAnchor, multiplier: 1.0/1.0).isActive = true
-        lockImage.topAnchor.constraint(equalTo: view.topAnchor, constant: 110).isActive = true
-        lockImage.widthAnchor.constraint(equalToConstant: 80).isActive = true
-        
-    }
     func setPreviousButtonConstraints(){
         previousButton.translatesAutoresizingMaskIntoConstraints = false
         previousButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20).isActive = true
@@ -146,38 +148,31 @@ extension Pass1ViewController{
 }
 //MARK: - Actions
 
-extension Pass1ViewController{
-     @objc func nextClicked(){
-                    newViewController.preferredContentSize = CGSize(width:600, height:400)
-                    PlaygroundPage.current.liveView = newViewController
-    
-        }
-     @objc func previousClicked(){
-                      previousView.preferredContentSize = CGSize(width:600, height:400)
-                      PlaygroundPage.current.liveView = previousView
-      
-          }
+extension Pass2ViewController{
+    // @objc func nextClicked(){
+    //                newViewController.preferredContentSize = CGSize(width:600, height:400)
+    //                PlaygroundPage.current.liveView = newViewController
+    //
+    //    }
+    @objc func previousClicked(){
+        previousView.preferredContentSize = CGSize(width:600, height:400)
+        PlaygroundPage.current.liveView = previousView
+        
+    }
 }
 
 
 
 //MARK: - Setting up Animations
 
-extension Pass1ViewController{
+extension Pass2ViewController{
     
-    func animateLockKeyImage(){
-        for i in 0...3{
-            UIView.animate(withDuration: 0.7, delay: TimeInterval(i), options: .curveLinear, animations: {
-                self.keyImage.center.x += 50
-            }, completion: nil)
-            
-            UIView.animate(withDuration: 0.5, delay:TimeInterval(i), options: .curveLinear, animations: {
-                self.keyImage.center.x -= 50
-            }, completion: nil)
-        }
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.7) {
-            self.lockImage.image = UIImage(named: "open_lock.png")
-        }
+    func animateImage(){
+        
+        UIView.animate(withDuration: 0.8, delay: 1, options: .curveLinear, animations: {
+            self.specialCharLabel.center.y -= 90
+            self.specialCharLabel.center.x -= 50
+        }, completion: nil)
         
     }
 }

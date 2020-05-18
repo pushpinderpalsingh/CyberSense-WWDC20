@@ -2,9 +2,9 @@ import UIKit
 import PlaygroundSupport
 
 
+private let newViewController = IntroViewController()
+
 public class LaunchViewController : UIViewController {
-    
-    let newViewController = IntroViewController()
     
     let logo = UIImageView()
     let getStarted = UIButton()
@@ -42,8 +42,8 @@ public class LaunchViewController : UIViewController {
             self.view.layoutIfNeeded()
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-            self.newViewController.preferredContentSize = CGSize(width:600, height:400)
-            PlaygroundPage.current.liveView = self.newViewController
+            newViewController.preferredContentSize = CGSize(width:600, height:400)
+            PlaygroundPage.current.liveView = newViewController
                    
         }
        
